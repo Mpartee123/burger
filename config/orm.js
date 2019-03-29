@@ -82,7 +82,7 @@ var orm = {
 
         console.log('This came from the orm update query'+queryString);
         connection.query(queryString,condition, function(err, result) {
-
+            
             if (err) {
                 throw err;
             }
