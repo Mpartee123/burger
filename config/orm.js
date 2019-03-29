@@ -44,6 +44,7 @@ var orm = {
     all: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
+            console.log("orm.js query string"+ JSON.stringify(result));
             if (err) {
                 throw err;
             }
@@ -79,8 +80,9 @@ var orm = {
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log(queryString);
-        connection.query(queryString, function(err, result) {
+        console.log('This came from the orm update query'+queryString);
+        connection.query(queryString,condition, function(err, result) {
+
             if (err) {
                 throw err;
             }
