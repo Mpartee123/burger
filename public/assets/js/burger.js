@@ -16,10 +16,13 @@ console.log('this is the type of newdevouredstate variable'+typeof newDevouredSt
             newDevouredState = 0;
             console.log('newdevouredstate was = 1 and changed to '+newDevouredState);
         }
+
         // Send the PUT request.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newDevouredState
+            data: {
+                devoured: newDevouredState
+            }
         }).then(
             function () {
                 console.log("changed devoured to", newDevoured);
