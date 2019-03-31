@@ -35,11 +35,17 @@ console.log('this is the type of newdevouredstate variable'+typeof newDevouredSt
     $(".create-form").on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
+        var selectValue = $("#inputGroupSelect01").val();
+
+        if (!selectValue) {
+            return;
+        }
 
         var newBurger = {
             burger_name: $("#ca").val().trim(),
-            devoured: $("[name=devoured]:checked").val().trim()
+            devoured: parseInt(selectValue)
         };
+        console.log(newBurger);
 
         // Send the POST request.
         $.ajax("/api/burgers", {
